@@ -1,0 +1,43 @@
+
+binaryzebra
+~~~~~~~~~~~
+
+splits BLOBs into multiple files, using e.g. every even and odd byte.
+options alow splitting e.g. in 4 files 16bit wise:
+
+  binaryluniq 4 blob 2
+
+uint8_t * blob;
+
+file1 := blob[0], blob[1], blob[ 8], blob[ 9], blob[16], blob[17], [...]
+file2 := blob[2], blob[3], blob[10], blob[11], blob[18], blob[19], [...]
+file3 := blob[4], blob[5], blob[12], blob[13], blob[20], blob[21], [...]
+file4 := blob[6], blob[7], blob[14], blob[15], blob[22], blob[23], [...]
+
+
+usage
+~~~~~
+
+  usage:
+      binaryzebra n_files image [n_bytes]
+
+      split an image into multiple files
+      e.g. with n_files=2 one file will get all odd bytes, the other every even byte
+      e.g. with n_files=4 file1 will get all 4th bytes,
+                          file2          all 4th+1 bytes
+                          file3          all 4th+2 bytes
+                          file4          all 4th+3 bytes
+      etc.
+      n_bytes is optional, and can be given dec or hex
+
+
+authors
+~~~~~~~
+
+mazzoo - binarytools /at/ mazzoo [dot] de
+
+
+license
+~~~~~~~
+
+GPLv3, see file LICENSE
